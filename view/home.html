@@ -1,0 +1,42 @@
+{{define "home"}}
+<!DOCTYPE html>
+<html>
+{{template "head" .}}
+
+<body>
+  <main class="wrapper">
+    <section class="container">
+
+      <h1 class="title">Mémo</h1>
+
+      <div class="clearfix">
+        <div class="float-left">
+          <form action="?filter=" method="GET">
+            <input name="filter" placeholder="Filtrer" id="filterField" value="{{.Filter}}">
+          </form>
+        </div>
+        <div class="float-right">
+          <a class="button button-outline" href="new">Nouveau</a>
+        </div>
+      </div>
+
+      <table>
+        <colgroup>
+          <col style="width:60%">
+          <col style="width:40%">
+        </colgroup>
+        <tbody>
+          {{range .Memos}}
+          <tr>
+            <td><strong><a href="memo?id={{.ToID}}">{{.Name}}</a></strong></td>
+            <td>{{.Category}}</td>
+          </tr>
+          {{end}}
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+
+</html>
+{{end}}

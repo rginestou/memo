@@ -1,0 +1,22 @@
+{{define "login"}}
+<!DOCTYPE html>
+<html>
+{{template "head" .}}
+
+<body>
+  <main class="wrapper">
+    <section class="container">
+
+      <h1 class="title">Mémo</h1>
+
+      <form method="POST">
+          <input name="login" placeholder="Login" autofocus required>
+          <input name="password" placeholder="Password" type="password" required>
+          <input class="button-primary" type="submit" value="Se connecter">
+      </form>
+    </section>
+  </main>
+</body>
+
+</html>
+{{end}}

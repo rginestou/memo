@@ -1,0 +1,64 @@
+{{define "memo"}}
+<!DOCTYPE html>
+<html>
+{{template "head" .}}
+
+<body>
+  <main class="wrapper">
+    <section class="container">
+
+      <a class="button" href="/memo?id={{.ID}}">Retour</a>
+
+      <form action="memo?id={{.ID}}" enctype="multipart/form-data" method="POST">
+        <fieldset>
+          <div class="row">
+            <div class="column">
+              <label for="nameField">Titre</label>
+              <input name="name" required placeholder="Titre" id="nameField" value="{{.Name}}" autofocus>
+            </div>
+            <div class="column">
+              <label for="jobField">Catégorie</label>
+              <input name="category" placeholder="Métier" id="categoryField" value="{{.Category}}">
+            </div>
+          </div>
+
+          <label for="contentField">Contenu</label>
+          <textarea name="content" id="contentField" rows="8" style="min-height: 400px">{{.Content}}</textarea>
+
+          <div class="clearfix">
+            <div class="float-left">
+              <input class="button-primary" type="submit" value="Valider">
+            </div>
+            <div class="float-right">
+              <button type=button class="button-outline" id="delete-button">Supprimer</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div id="delete-modal" class="modal">
+    <div class="modal-content">
+      <div class="clearfix">
+        <div class="float-right">
+          <div class="close">&times;</div>
+        </div>
+      </div>
+
+      <p>Supprimer le memo ?</p>
+
+      <div class="center">
+        <form action="delete?id={{.ID}}" method="POST">
+          <input class="button-primary" type="submit" value="Supprimer">
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="static/main.js"></script>
+</body>
+
+</html>
+{{end}}

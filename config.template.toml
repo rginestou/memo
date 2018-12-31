@@ -1,0 +1,6 @@
+port = 8080
+dbserver = "localhost"
+dbname = "memo"
+key = "key"
+login = "login"
+password = "password"

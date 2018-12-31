@@ -1,0 +1,30 @@
+{{define "memo"}}
+<!DOCTYPE html>
+<html>
+{{template "head" .}}
+
+<body>
+  <main class="wrapper">
+    <section class="container">
+
+      <a class="button" href="/">Retour</a>
+
+      <div class="clearfix">
+        <div class="float-left">
+          <h1 class="title">{{.Name}}</h1>
+          <p class="description">{{.Category}}</p>
+        </div>
+        <div class="float-right">
+          <a class="button button-outline" href="edit?id={{.ID}}">Edit</a>
+        </div>
+      </div>
+
+      <p>
+        {{.ToMarkupContent}}
+      </p>
+    </section>
+  </main>
+</body>
+
+</html>
+{{end}}
